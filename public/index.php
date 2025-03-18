@@ -12,3 +12,4 @@
          architecto fugiat quisquam sint rerum magnam voluptatum.</p>
 </body>
 </html>
+<?php include '../src/Views/footer.php'; ?>
