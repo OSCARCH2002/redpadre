@@ -10,7 +10,7 @@
 ## 📁 **Estructura del Proyecto**
 
 ```bash
-red-de-padres/  
+redpadre/  
 ├── src/  
 │   ├── Controllers/        
 │   ├── Models/          
