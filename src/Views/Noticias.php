@@ -9,8 +9,8 @@
 </head>
 <body class="bg-gray-100">
 
-<!-- Sección principal -->
-<section class="relative bg-cover bg-center h-96" style="background-image: url('/assets/images/noticias.png');">
+<!-- hero -->
+<section class="relative bg-cover bg-center h-96" style="background-image: url('../../assets/images/galeria3.jpg');">
     <div class="bg-black bg-opacity-50 w-full h-full flex flex-col justify-center items-center text-center text-white">
         <h1 class="text-5xl font-bold text-red-500">NOTICIAS</h1>
         <p class="mt-4 max-w-2xl">
@@ -20,11 +20,11 @@
     </div>
 </section>
 
-<!-- carf de noticias -->
+<!-- Cards de noticias -->
 <section class="py-16 bg-gray-200">
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            
+
             <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
                 <img src="/assets/images/noticia1.jpg" alt="Discapacidad" class="w-full h-52 object-cover">
                 <div class="p-6">
@@ -33,14 +33,14 @@
                         “Cualquier restricción o impedimento de la capacidad de realizar una actividad en la forma o dentro del margen que se considera normal.”
                     </p>
                     <div class="mt-4">
-                        <a href="https://goo.su/OtVZhD" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                        <a href="#" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
                             Leer Noticia completa
                         </a>
                     </div>
                 </div>
             </div>
 
-            
+        
             <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
                 <img src="/assets/images/noticia2.jpg" alt="Tipos de Discapacidad" class="w-full h-52 object-cover">
                 <div class="p-6">
@@ -49,7 +49,7 @@
                         Sensorial Visual, Auditiva, Motriz, Intelectual, Mental o Psicosocial.
                     </p>
                     <div class="mt-4">
-                        <a href="https://goo.su/OtVZhD" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                        <a href="#" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
                             Leer Noticia completa
                         </a>
                     </div>
@@ -65,7 +65,55 @@
                         nacimiento, enfermedad, accidente y edad avanzada.
                     </p>
                     <div class="mt-4">
-                        <a href="https://goo.su/OtVZhD" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                        <a href="#" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                            Leer Noticia completa
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+                <img src="/assets/images/noticia4.jpg" alt="Apoyos discapacidad" class="w-full h-52 object-cover">
+                <div class="p-6">
+                    <h3 class="text-lg font-bold">¿Qué tipo de apoyos requiere una persona con discapacidad?</h3>
+                    <ul class="list-disc list-inside text-gray-600 mt-2">
+                        <li>Legislativo.</li>
+                        <li>Lenguaje Incluyente.</li>
+                        <li>Rehabilitación.</li>
+                        <li>Ayudas técnicas.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                            Leer Noticia completa
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+                <img src="/assets/images/noticia5.jpg" alt="Inclusión laboral" class="w-full h-52 object-cover">
+                <div class="p-6">
+                    <h3 class="text-lg font-bold">Venustiano Carranza impulsa la inclusión laboral para personas con discapacidad</h3>
+                    <p class="text-gray-600 mt-2">
+                        Más de 40 empresas del sector público y privado participaron en la feria.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                            Leer Noticia completa
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105">
+                <img src="/assets/images/noticia6.jpg" alt="Reforma accesibilidad" class="w-full h-52 object-cover">
+                <div class="p-6">
+                    <h3 class="text-lg font-bold">Aprueban en San Lázaro reforma para estacionamientos accesibles</h3>
+                    <p class="text-gray-600 mt-2">
+                        El pleno de la Cámara de Diputados aprobó, por 430 votos a favor, reformar la Ley General de Movilidad y Seguridad Vial.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
                             Leer Noticia completa
                         </a>
                     </div>
@@ -78,4 +126,5 @@
 
 </body>
 </html>
+
 <?php include './partials/footer.php'; ?>
