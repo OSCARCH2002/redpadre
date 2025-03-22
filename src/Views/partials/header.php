@@ -1,60 +1,58 @@
+<?php
+$host = $_SERVER['HTTP_HOST'];
+$base_url = "http://$host/redpadre";  
+
+$menuItems = [
+    "Inicio" => "/public/index.php",
+    "Noticias" => "/src/Views/Noticias.php",
+    "Eventos" => "/src/Views/Eventos.php",
+    "Contactos" => "/src/Views/Contactos.php",
+    "Sobre nosotros" => "/src/Views/SobreNosotros.php",
+    "Reseña" => "/src/Views/Reseña.php"
+];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Site Title</title>
-    <!-- Include Tailwind CSS -->
+    <title>Red Padre</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Or if you've installed Tailwind locally -->
-    <!-- <link rel="stylesheet" href="/path/to/your/tailwind.css"> -->
 </head>
-<body>
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <!-- Logo section -->
-            <div class="flex items-center">
-                <a href="/" class="flex items-center">
-                    <img src="../../../assets/icons/logo.png" alt="Logo" class="h-16 w-16">
-                </a>
-            </div>
+<body class="bg-gray-100">
+
+<header>
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             
-            <!-- Navigation links -->
+            <a href="<?= $base_url ?>/public/index.php" class="flex items-center">
+                <img src="<?= $base_url ?>/assets/icons/logo.png" alt="Logo" class="h-16"> <!-- Logo más grande -->
+            </a>
+
             <div class="hidden md:flex items-center space-x-8">
-                <a href="/" class="text-gray-800 hover:text-blue-700 font-medium">Inicio</a>
-                <a href="../Contactos.php" class="text-gray-800 hover:text-blue-700 font-medium">Noticias</a>
-                <a href="../Eventos" class="text-gray-800 hover:text-blue-700 font-medium">Eventos</a>
-                <a href="../Contactos" class="text-gray-800 hover:text-blue-700 font-medium">Contactos</a>
-                <a href="../SobreNosotros" class="text-gray-800 hover:text-blue-700 font-medium">Sobre nosotros</a>
-                <a href="../Reseña.php" class="text-gray-800 hover:text-blue-700 font-medium">Reseña</a>
+                <?php foreach ($menuItems as $name => $link): ?>
+                    <a href="<?= $base_url . $link ?>" 
+                       class="text-gray-700 hover:text-blue-500 transition duration-300 text-lg font-semibold">
+                        <?= $name ?>
+                    </a>
+                <?php endforeach; ?>
             </div>
-            
-            <!-- Register button -->
-            <div class="flex items-center">
-                <a href="/registro" class="bg-white text-blue-700 border border-blue-700 rounded-full px-6 py-2 hover:bg-blue-700 hover:text-white transition duration-300">
-                    Registrate
-                </a>
-            </div>
-            
-            <!-- Mobile menu button (optional) -->
-            <div class="md:hidden flex items-center">
-                <button class="mobile-menu-button">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        
-        <!-- Mobile menu (optional, hidden by default) -->
-        <div class="mobile-menu hidden md:hidden">
-            <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-200">Inicio</a>
-            <a href="/noticias" class="block py-2 px-4 text-sm hover:bg-gray-200">Noticias</a>
-            <a href="/eventos" class="block py-2 px-4 text-sm hover:bg-gray-200">Eventos</a>
-            <a href="/contactos" class="block py-2 px-4 text-sm hover:bg-gray-200">Contactos</a>
-            <a href="/sobre-nosotros" class="block py-2 px-4 text-sm hover:bg-gray-200">Sobre nosotros</a>
-            <a href="/resena" class="block py-2 px-4 text-sm hover:bg-gray-200">Reseña</a>
-            <a href="/registro" class="block py-2 px-4 text-sm text-blue-700 font-bold hover:bg-gray-200">Registrate</a>
+
+            <a href="<?= $base_url ?>/src/Views/registro.php" 
+               class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+                Regístrate
+            </a>
+
+            <button class="md:hidden block text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
-    </header>
-    <!-- Your page content will start here -->
+    </nav>
+</header>
+
+</body>
+</html>
