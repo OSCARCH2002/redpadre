@@ -28,7 +28,7 @@ $menuItems = [
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             
             <a href="<?= $base_url ?>/public/index.php" class="flex items-center">
-                <img src="<?= $base_url ?>/assets/icons/logo.png" alt="Logo" class="h-16"> <!-- Logo más grande -->
+                <img src="<?= $base_url ?>/assets/icons/logo.png" alt="Logo" class="h-16"> 
             </a>
 
             <div class="hidden md:flex items-center space-x-8">
