@@ -33,7 +33,7 @@
                 <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Eventos.php">Eventos</a>
                 <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Contactos.php">Contactos</a>
                 <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/SobreNosotros.php">Sobre nosotros</a>
-                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="#">Reseña</a>
+                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Reseña.php">Reseña</a>
                 <a class="border-2 border-white rounded-full px-6 py-2 text-lg hover:bg-white hover:text-black transition duration-300" href="#">Regístrate</a>
             </nav>
         </div>
@@ -63,26 +63,26 @@
     </div>
 
 
-    <div class="relative mt-12 bg-blue-900 rounded-3xl py-40 px-8 shadow-lg"> 
-        <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-60px] w-11/12 md:w-3/4 lg:w-2/3 flex flex-col md:flex-row gap-8"> 
-            
-            <!--  Misión -->
-            <div class="bg-white rounded-2xl shadow-xl p-10 flex-1 transition-transform hover:scale-105"> 
-                <h2 class="text-xl font-bold text-gray-800">Nuestra Misión</h2>
-                <p class="mt-4 text-gray-600">
-                    Ser una comunidad de servicio y apoyo mutuo entre padres, tutores y cuidadores de personas con discapacidad, promoviendo la inclusión, la difusión de información y la orientación a la sociedad.
-                </p>
-            </div>
+    <div class="relative mt-12 bg-[#1A5CE0] rounded-3xl py-40 px-8 shadow-lg">
+    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-60px] w-11/12 md:w-3/4 lg:w-2/3 flex flex-col md:flex-row gap-8"> 
+        <!--  Misión -->
+        <div class="bg-white rounded-2xl shadow-xl p-10 flex-1 transition-transform hover:scale-105"> 
+            <h2 class="text-xl font-bold text-gray-800">Nuestra Misión</h2>
+            <p class="mt-4 text-gray-600">
+                Ser una comunidad de servicio y apoyo mutuo entre padres, tutores y cuidadores de personas con discapacidad, promoviendo la inclusión, la difusión de información y la orientación a la sociedad.
+            </p>
+        </div>
 
-            <!--  Visión -->
-            <div class="bg-white rounded-2xl shadow-xl p-10 flex-1 transition-transform hover:scale-105"> 
-                <h2 class="text-xl font-bold text-gray-800">Nuestra Visión</h2>
-                <p class="mt-4 text-gray-600">
-                    Ser una red consolidada y reconocida en la región de Costa Chica en el ámbito de inclusión de Personas con Discapacidad para una vida digna e igualitaria.
-                </p>
-            </div>
+        <!--  Visión -->
+        <div class="bg-white rounded-2xl shadow-xl p-10 flex-1 transition-transform hover:scale-105"> 
+            <h2 class="text-xl font-bold text-gray-800">Nuestra Visión</h2>
+            <p class="mt-4 text-gray-600">
+                Ser una red consolidada y reconocida en la región de Costa Chica en el ámbito de inclusión de Personas con Discapacidad para una vida digna e igualitaria.
+            </p>
         </div>
     </div>
+</div>
+
 </section>
 
 <!-- Preguntas Frecuentes -->

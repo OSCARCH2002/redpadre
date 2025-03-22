@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-<section class="bg-blue-900 text-white py-10">
+<section class="bg-[#1A5CE0] text-white py-10">
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             
