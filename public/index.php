@@ -34,7 +34,7 @@
                 <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Contactos.php">Contactos</a>
                 <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/SobreNosotros.php">Sobre nosotros</a>
                 <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Reseña.php">Reseña</a>
-                <a class="border-2 border-white rounded-full px-6 py-2 text-lg hover:bg-white hover:text-black transition duration-300" href="#">Regístrate</a>
+                <a class="border-2 border-white rounded-full px-6 py-2 text-lg hover:bg-white hover:text-black transition duration-300" href="../src/Views/auth/login.php">Regístrate</a>
             </nav>
         </div>
 
