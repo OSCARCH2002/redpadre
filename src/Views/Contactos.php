@@ -3,11 +3,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
     <title>Contacto - Red Padres</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
+<div class="overflow-hidden">
+
 <section class="bg-[#1A5CE0] text-white py-10">
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -19,6 +22,7 @@
                 <h3 class="text-xl font-bold">Ubicación</h3>
                 <p class="text-center mt-2">San Marcos, Gro. México</p>
             </div>
+            
             <div class="bg-white text-gray-800 rounded-lg shadow-lg p-8 flex flex-col items-center">
                 <div class="text-5xl mb-4">
                     <i class="fas fa-envelope"></i>
@@ -83,6 +87,9 @@
         </div>
     </div>
 </section>
+
+</div> <!-- Cierre del contenedor principal -->
+
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
