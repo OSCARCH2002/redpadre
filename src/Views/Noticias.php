@@ -3,7 +3,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <title>Noticias - Red Padres</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
