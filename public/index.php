@@ -1,205 +1,638 @@
+<?php
+$host = $_SERVER['HTTP_HOST'];
+$base_url = "http://$host/redpadre";  
+include '../src/Views/partials/header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <title>Organización</title>
+    <title>Red Padre</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+        :root {
+            --primary-color: #0E5BCC;
+            --secondary-color: #ffffff;
+            --bg-color: #101524;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+        
+       
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+        
+       
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+        
+        .hero-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 91, 204, 0.3);
+        }
+        
+        .card-hover-effect {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover-effect:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(14, 91, 204, 0.2), 0 10px 10px -5px rgba(14, 91, 204, 0.1);
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .faq-item:hover {
+            background: rgba(14, 91, 204, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(14, 91, 204, 0.3), rgba(14, 91, 204, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .contact-form-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(14, 91, 204, 0.3);
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0c4fb3;
+        }
+        
+     
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+      
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .scroll-down-arrow {
+            display: block;
+            width: 30px;
+            height: 30px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-down-arrow:hover {
+            color: #3b82f6;
+            transform: translateY(5px) translateX(-50%);
+        }
     </style>
 </head>
-<body class="bg-white"> 
+<body class="antialiased">
+
+
+<div class="particles" id="particles"></div>
 
 <!-- Hero Section -->
-<header class="relative">
-    <img alt="Group of people" class="w-full h-screen object-cover" src="../assets/images/main.jpeg"/>
+<section class="relative h-screen overflow-hidden pt-24">
+    <div class="absolute inset-0 bg-black z-0">
+        <img alt="Group of people" class="w-full h-full object-cover opacity-70" src="<?= $base_url ?>/assets/images/main.jpeg"/>
+    </div>
     
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between text-white">
-        <!-- Menú -->
-        <div class="flex items-center justify-between px-16 py-6">
-            <img alt="Logo" class="w-24 h-24" src="../assets/icons/logo.png"/>
-            <nav class="flex space-x-12">
-                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="">Inicio</a>
-                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Noticias.php">Noticias</a>
-                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Eventos.php">Eventos</a>
-                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Contactos.php">Contactos</a>
-                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/SobreNosotros.php">Sobre nosotros</a>
-                <a class="text-white text-lg hover:text-gray-300 transition duration-300" href="../src/Views/Reseña.php">Reseña</a>
-                <a class="border-2 border-white rounded-full px-6 py-2 text-lg hover:bg-white hover:text-black transition duration-300" href="../src/Views/auth/login.php">Regístrate</a>
-            </nav>
-        </div>
-
-        <div class="text-center fade-in">
-            <h1 class="text-5xl md:text-5xl font-extrabold leading-tight">SOMOS UNA ORGANIZACIÓN</h1>
-            <h2 class="text-5xl md:text-5xl font-extrabold">SIN FINES DE LUCRO</h2>
-            <p class="text-2xl md:text-3xl mt-6 italic">“Con amor, juntos por la inclusión”</p>
-        </div>
-
-        <!-- Botón de acceso -->
-        <div class="flex justify-center mb-12">
-            <a class="bg-transparent border-2 border-white text-white rounded-full px-10 py-4 text-xl hover:bg-white hover:text-black transition duration-300" href="#">Acceso</a>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-80 z-0"></div>
+    
+    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-white" data-aos="fade-up" data-aos-delay="100">
+            SOMOS UNA ORGANIZACIÓN
+        </h1>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-white" data-aos="fade-up" data-aos-delay="200">
+            SIN FINES DE LUCRO
+        </h2>
+        <p class="text-xl sm:text-2xl italic text-blue-300 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+            "Con amor, juntos por la inclusión"
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="400">
+            <a class="hero-button bg-transparent border-2 border-white text-white rounded-full px-8 py-3 text-lg font-medium hover:bg-white hover:text-black flex items-center justify-center" href="<?= $base_url ?>/src/Views/SobreNosotros.php">
+                <span>Conoce más</span>
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+            <a class="hero-button bg-white border-2 border-white text-black rounded-full px-8 py-3 text-lg font-medium hover:bg-transparent hover:text-white flex items-center justify-center" href="../src/Views/auth/acceso.php">
+                <span>Acceso</span>
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
         </div>
     </div>
-</header>
+    
+    <!-- Flecha de scroll-->
+    <div class="scroll-down bounce-animation" data-aos="fade-up" data-aos-delay="500">
+        <a href="#about" class="scroll-down-arrow" id="scroll-down">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </a>
+    </div>
+</section>
 
 <!-- Sobre Nosotros -->
-<section class="container mx-auto px-4 py-12">
-    <div class="text-center fade-in">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">Sobre Nosotros</h1>
-        <p class="mt-4 text-gray-600">
-            Somos una red de padres de personas con discapacidad, convencidos de que a través de la unión y la organización podemos alcanzar mejores condiciones de vida para nuestros hijos y familiares.
-        </p>
-    </div>
-
-    <div class="relative mt-12 bg-[#1A5CE0] rounded-3xl py-40 px-8 shadow-lg">
-        <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-60px] w-11/12 md:w-3/4 lg:w-2/3 flex flex-col md:flex-row gap-8"> 
-            <!--  Misión -->
-            <div class="bg-white rounded-2xl shadow-xl p-10 flex-1 scale-up"> 
-                <h2 class="text-xl font-bold text-gray-800">Nuestra Misión</h2>
-                <p class="mt-4 text-gray-600">
-                    Ser una comunidad de servicio y apoyo mutuo entre padres, tutores y cuidadores de personas con discapacidad, promoviendo la inclusión, la difusión de información y la orientación a la sociedad.
-                </p>
+<section id="about" class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#101524]">
+    <div class="max-w-7xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Sobre Nosotros
+            </h2>
+            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            Somos una red de padres de personas con discapacidad, convencidos que atreves dela unión y la organización podemos alcanzar mejores condiciones de vida para nuestros hijos y familiares.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+            <!-- Misión -->
+            <div class="bg-gray-900/50 backdrop-blur-md rounded-2xl p-8 border border-gray-800 shadow-xl card-hover-effect" data-aos="fade-right">
+                <div class="flex items-start mb-6">
+                    <div class="bg-blue-900/20 p-3 rounded-lg mr-4">
+                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mt-1">Nuestra Misión</h3>
+                </div>
+                <p class="text-gray-300 text-lg">
+                Ser una comunidad de servicio y apoyo mutuo entre padres, tutores y cuidadores de personas 
+                con discapacidad y promover la inclusión, a través de la concientización, difusión de información y
+                 orientación a la sociedad, organismos gubernamentales e instituciones educativas.
+            </p>
             </div>
-
-            <!--  Visión -->
-            <div class="bg-white rounded-2xl shadow-xl p-10 flex-1 scale-up"> 
-                <h2 class="text-xl font-bold text-gray-800">Nuestra Visión</h2>
-                <p class="mt-4 text-gray-600">
-                    Ser una red consolidada y reconocida en la región de Costa Chica en el ámbito de inclusión de Personas con Discapacidad para una vida digna e igualitaria.
-                </p>
+            
+            <!-- Visión -->
+            <div class="bg-gray-900/50 backdrop-blur-md rounded-2xl p-8 border border-gray-800 shadow-xl card-hover-effect" data-aos="fade-left">
+                <div class="flex items-start mb-6">
+                    <div class="bg-blue-900/20 p-3 rounded-lg mr-4">
+                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mt-1">Nuestra Visión</h3>
+                </div>
+                <p class="text-gray-300 text-lg">
+                Ser una red de servicio y apoyo consolidada y reconocida en la región de Costa Chica en el ámbito
+                 de inclusión de Personas 
+                con Discapacidad para una vida digna y con igualdad de derechos.
+            </p>
             </div>
         </div>
     </div>
 </section>
-
 <!-- Preguntas Frecuentes -->
-<section class="bg-white py-12">
-    <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Preguntas Frecuentes</h1>
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col">
-                <div class="py-5 cursor-pointer bg-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition" onclick="toggleAnswer('answer1')">
-                    <div class="flex justify-between items-center">
-                        <span class="text-lg font-semibold text-gray-800">¿Qué es la red de padres?</span>
-                        <i class="fas fa-plus text-gray-800" id="icon1"></i>
-                    </div>
-                    <div id="answer1" class="hidden px-4 pb-4 text-gray-600">
-                        La red de padres es una comunidad que busca apoyar a familias de personas con discapacidad.
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#101524]">
+    <div class="max-w-7xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Preguntas Frecuentes
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Encuentra respuestas a las preguntas más comunes sobre nuestra organización.
+            </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto space-y-4">
+
+            <div class="faq-item rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                <button class="flex justify-between items-center w-full text-left focus:outline-none group" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg sm:text-xl font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
+                        ¿Qué es la red de padres?
+                    </h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden mt-4 pl-2">
+                    <div class="border-l-2 border-blue-400 pl-4">
+                        <p class="text-gray-300">
+                            La red de padres es una comunidad que busca apoyar a familias de personas con discapacidad, proporcionando recursos, información y un espacio seguro para compartir experiencias y estrategias que mejoren la calidad de vida de todos sus miembros.
+                        </p>
                     </div>
                 </div>
-
-                <div class="py-5 cursor-pointer bg-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition mt-4" onclick="toggleAnswer('answer2')">
-                    <div class="flex justify-between items-center">
-                        <span class="text-lg font-semibold text-gray-800">¿Quiénes pueden integrarse?</span>
-                        <i class="fas fa-plus text-gray-800" id="icon2"></i>
-                    </div>
-                    <div id="answer2" class="hidden px-4 pb-4 text-gray-600">
-                        Pueden integrarse todos los padres, tutores y cuidadores de personas con discapacidad.
+            </div>
+            
+          
+            <div class="faq-item rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                <button class="flex justify-between items-center w-full text-left focus:outline-none group" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg sm:text-xl font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
+                        ¿Quiénes pueden integrarse?
+                    </h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden mt-4 pl-2">
+                    <div class="border-l-2 border-blue-400 pl-4">
+                        <p class="text-gray-300">
+                            Pueden integrarse todos los padres, tutores y cuidadores de personas con discapacidad, así como profesionales y voluntarios que deseen contribuir con nuestra causa. También estamos abiertos a colaboraciones con otras organizaciones afines.
+                        </p>
                     </div>
                 </div>
-
-                <div class="py-5 cursor-pointer bg-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition mt-4" onclick="toggleAnswer('answer3')">
-                    <div class="flex justify-between items-center">
-                        <span class="text-lg font-semibold text-gray-800">¿Dónde están ubicados?</span>
-                        <i class="fas fa-plus text-gray-800" id="icon3"></i>
-                    </div>
-                    <div id="answer3" class="hidden px-4 pb-4 text-gray-600">
-                        Estamos ubicados en la región de Costa Chica, pero contamos con redes en otras áreas.
+            </div>
+            
+          
+            <div class="faq-item rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                <button class="flex justify-between items-center w-full text-left focus:outline-none group" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg sm:text-xl font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
+                        ¿Dónde están ubicados?
+                    </h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden mt-4 pl-2">
+                    <div class="border-l-2 border-blue-400 pl-4">
+                        <p class="text-gray-300">
+                            Estamos ubicados en la región de Costa Chica, en la cabecera de San Marcos.
+                        </p>
                     </div>
                 </div>
-
-                <div class="py-5 cursor-pointer bg-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition mt-4" onclick="toggleAnswer('answer4')">
-                    <div class="flex justify-between items-center">
-                        <span class="text-lg font-semibold text-gray-800">¿Qué beneficios obtengo?</span>
-                        <i class="fas fa-plus text-gray-800" id="icon4"></i>
-                    </div>
-                    <div id="answer4" class="hidden px-4 pb-4 text-gray-600">
-                        Obtienes apoyo, información y acceso a recursos para mejorar la calidad de vida de tu familiar.
+            </div>
+            
+           
+            <div class="faq-item rounded-xl p-6" data-aos="fade-up" data-aos-delay="400">
+                <button class="flex justify-between items-center w-full text-left focus:outline-none group" onclick="toggleFAQ(this)">
+                    <h3 class="text-lg sm:text-xl font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
+                    ¿Cuales son las asociaciones que la integran?
+                    </h3>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer hidden mt-4 pl-2">
+                    <div class="border-l-2 border-blue-400 pl-4">
+                        <p class="text-gray-300">
+                        Tenemos el apoyo de diferentes asociaciones entre ellas el DIF Municipal de San Marcos, Gro.
+                    </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<script>
-function toggleAnswer(id) {
-    const answer = document.getElementById(id);
-    answer.classList.toggle('hidden');
-}
-</script>
 
 <!-- Galería -->
-<section class="container mx-auto px-4 py-12">
-    <h1 class="text-center text-4xl font-bold mb-8">NUESTRA GALERÍA</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-        <div class="rounded overflow-hidden shadow-lg">
-            <img alt="Imagen 1" class="w-full h-96 object-cover" src="../assets/images/galeria1.jpg"/>
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#101524]">
+    <div class="max-w-7xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Nuestra Galería
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Momentos especiales que capturan nuestro trabajo y compromiso.
+            </p>
         </div>
-        <div class="rounded overflow-hidden shadow-lg">
-            <img alt="Imagen 2" class="w-full h-96 object-cover" src="../assets/images/galeria2.jpg"/>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+           
+            <div class="gallery-item aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="100">
+                <img alt="Imagen 1" class="w-full h-full object-cover" src="<?= $base_url ?>/assets/images/galeria1.jpg"/>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div class="text-center p-4">
+                        <svg class="w-10 h-10 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 class="text-white font-bold text-xl">Proceso escolar de discapacidad</h3>
+                        <p class="text-gray-300">2025</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="gallery-item aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
+                <img alt="Imagen 2" class="w-full h-full object-cover" src="<?= $base_url ?>/assets/images/galeria2.jpg"/>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div class="text-center p-4">
+                        <svg class="w-10 h-10 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 class="text-white font-bold text-xl">Reunión con padres de familia</h3>
+                        <p class="text-gray-300">2025</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="gallery-item aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="300">
+                <img alt="Imagen 3" class="w-full h-full object-cover" src="<?= $base_url ?>/assets/images/galeria3.jpg"/>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div class="text-center p-4">
+                        <svg class="w-10 h-10 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 class="text-white font-bold text-xl">Sesión educativa</h3>
+                        <p class="text-gray-300">2025</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="gallery-item aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="400">
+                <img alt="Imagen 4" class="w-full h-full object-cover" src="<?= $base_url ?>/assets/images/galeria4.jpg"/>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div class="text-center p-4">
+                        <svg class="w-10 h-10 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 class="text-white font-bold text-xl">Entrega de reconocimientos</h3>
+                        <p class="text-gray-300">2025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="500">
+                <img alt="Imagen 5" class="w-full h-full object-cover" src="<?= $base_url ?>/assets/images/galeria5.jpg"/>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div class="text-center p-4">
+                        <svg class="w-10 h-10 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 class="text-white font-bold text-xl">Marcha en San Marcos</h3>
+                        <p class="text-gray-300">2025</p>
+                    </div>
+                </div>
+            </div>
+            
+          
+            <div class="gallery-item aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="600">
+                <img alt="Imagen 6" class="w-full h-full object-cover" src="<?= $base_url ?>/assets/images/main.jpeg"/>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div class="text-center p-4">
+                        <svg class="w-10 h-10 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <h3 class="text-white font-bold text-xl">Reunión de concientización</h3>
+                        <p class="text-gray-300">2025</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="rounded overflow-hidden shadow-lg">
-            <img alt="Imagen 3" class="w-full h-96 object-cover" src="../assets/images/galeria3.jpg"/>
-        </div>
-        <div class="rounded overflow-hidden shadow-lg">
-            <img alt="Imagen 4" class="w-full h-96 object-cover" src="../assets/images/galeria4.jpg"/>
-        </div>
-        <div class="rounded overflow-hidden shadow-lg">
-            <img alt="Imagen 5" class="w-full h-96 object-cover" src="../assets/images/galeria5.jpg"/>
-        </div>
-        <div class="rounded overflow-hidden shadow-lg">
-            <img alt="Imagen 6" class="w-full h-96 object-cover" src="../assets/images/main.jpeg"/>
+        
+        <div class="text-center mt-12" data-aos="fade-up">
+            <button class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-[#0E5BCC] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 hover:shadow-lg">
+                Ver más fotos
+                <svg class="ml-3 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </button>
         </div>
     </div>
 </section>
 
 <!-- Contacto -->
-<section class="container mx-auto px-4 py-20">
-    <div class="bg-white p-12 rounded-lg shadow-lg max-w-7xl mx-auto border-4 border-gray-300" style="position: relative; z-index: 1;">
-        <h2 class="text-center text-4xl font-bold mb-8">CONTACTO</h2>
+<section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#101524]">
+    <div class="max-w-7xl mx-auto relative z-10" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Contáctanos
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Estamos aquí para ayudarte. Envíanos tus preguntas o comentarios.
+            </p>
+        </div>
         
-        <form class="space-y-10">
-            <div class="flex justify-center space-x-12">
-                <input class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/3 text-lg" 
-                       placeholder="Nombre" 
-                       type="text" 
-                       required 
-                       style="background-color: #D9D9D9; color: #333;" />
-                <input class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/3 text-lg" 
-                       placeholder="Correo" 
-                       type="email" 
-                       required 
-                       style="background-color: #D9D9D9; color: #333;" />
-            </div>
-            
-            <div class="flex justify-center items-center space-x-12">
-                <div class="relative">
-                    <img alt="Mascota" 
-                         class="w-64 h-64 rounded-lg shadow-lg object-cover" 
-                         src="../assets/images/dibujo.jpg" 
-                         style="clip-path: inset(0 0 20% 0);"/> 
+        <div class="bg-gray-900/50 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl border border-gray-800 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <div class="hidden lg:block relative bg-blue-900/10">
+                    <div class="absolute inset-0 flex items-center justify-center p-8">
+                        <img alt="Mascota" class="w-full h-auto max-h-96 object-contain float-animation" src="<?= $base_url ?>/assets/images/dibujo.png"/>
+                    </div>
                 </div>
                 
-                <textarea class="p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-2/3 h-64 text-lg" 
-                          placeholder="Sugerencias" 
-                          style="background-color: #D9D9D9; color: #333;"></textarea>
+                <div class="p-8 sm:p-10">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nombre</label>
+                            <input type="text" id="name" name="name" class="contact-form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Correo electrónico</label>
+                            <input type="email" id="email" name="email" class="contact-form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="tu@correo.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="contact-form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Tu mensaje..." required></textarea>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" class="submit-btn w-full px-6 py-4 rounded-lg text-white font-medium text-lg shadow-lg transition-all duration-300">
+                                Enviar mensaje
+                                <svg class="w-5 h-5 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            
-            <div class="text-center">
-                <button class="bg-blue-500 text-white px-16 py-6 rounded-lg hover:bg-blue-600 transition duration-300 text-xl" type="submit">
-                    Enviar
-                </button>
-            </div>
-        </form>
+        </div>
     </div>
-    
-    <div class="absolute inset-0 rounded-lg border-4 border-transparent" style="background: linear-gradient(to right, rgba(76, 83, 84, 0.9), rgba(217, 217, 217, 0.9)); z-index: -1;"></div>
 </section>
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Inicialización de las animaciones
+    AOS.init({
+        duration: 800,
+        once: true,
+        easing: 'ease-in-out'
+    });
+    
+   
+    function toggleFAQ(button) {
+        const faqItem = button.closest('.faq-item');
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = button.querySelector('svg');
+        
+        
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+                const otherAnswer = item.querySelector('.faq-answer');
+                const otherIcon = item.querySelector('svg');
+                otherAnswer.classList.add('hidden');
+                otherIcon.classList.remove('rotate-45');
+            }
+        });
+       
+        answer.classList.toggle('hidden');
+        icon.classList.toggle('rotate-45');
+    }
+    
+ 
+    document.addEventListener('DOMContentLoaded', function() {
+        const particlesContainer = document.getElementById('particles');
+        if (particlesContainer) {
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 2 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+     
+        const scrollDown = document.getElementById('scroll-down');
+        if (scrollDown) {
+            scrollDown.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    });
+</script>
 
 <?php include '../src/Views/partials/footer.php'; ?>
 

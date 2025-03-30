@@ -1,57 +1,83 @@
-<footer style="
-    font-family: 'Montserrat', sans-serif;
-    background-color: #1A5CE0;
-    color: white;
-    padding: 90px 0; 
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: nowrap; /* Evita que se envuelvan */
-    align-items: flex-start; /* Alinea las secciones al principio */
-    margin: 0;
-    box-sizing: border-box;
-    position: relative;
-    left: 0;
-    right: 0;
-">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <div style="max-width: 300px; text-align: left;">
-        <h3 style="margin-bottom: 10px; font-weight: bold; font-size: 24px;">Sobre nosotros</h3>
-        <p style="line-height: 1.5;">Somos una organización que ayuda a dar terapias gratuitas a personas con problemas de discapacidad.</p>
-    </div>
-
-    <div style="max-width: 300px; text-align: left;">
-        <h3 style="margin-bottom: 10px; font-weight: bold; font-size: 24px;">Enlaces rápidos</h3>
-        <ul style="list-style: none; padding: 0px;">
-            <li style="margin-bottom: 10px;"><a href="#" style="color: white; text-decoration: none;">Eventos</a></li>
-            <li style="margin-bottom: 10px;"><a href="#" style="color: white; text-decoration: none;">Noticias</a></li>
-            <li style="margin-bottom: 10px;"><a href="#" style="color: white; text-decoration: none;">Intégrate</a></li>
-        </ul>
-    </div>
-
-    <div style="max-width: 300px; text-align: left;">
-        <h3 style="margin-bottom: 10px; font-weight: bold; font-size: 24px;">Contactos</h3>
-        <p style="line-height: 1.5;">San Marcos, Guerrero, México.</p>
-        <p style="line-height: 1.5;">Tel. 7451043812</p>
-        <p style="line-height: 1.5;">red_padres@gmail.com</p>
-    </div>
-
-    <div style="max-width: 300px; text-align: left;">
-        <h3 style="margin-bottom: 10px; font-weight: bold; font-size: 24px;">Redes</h3>
-        <p style="line-height: 1.5;">Síguenos en nuestras redes sociales.</p>
-        <div style="display: flex; gap: 10px;">
-            <a href="https://www.facebook.com" target="_blank">
-                <i class="fab fa-facebook" style="font-size: 30px; color: white;"></i>
-            </a>
-            <a href="https://www.youtube.com" target="_blank">
-                <i class="fab fa-youtube" style="font-size: 30px; color: white;"></i>
-            </a>
-            <a href="#">
-                <i class="fas fa-user" style="font-size: 30px; color: white;"></i>
-            </a>
+<footer class="bg-[#101524] text-gray-300 py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-700">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1">
+                <img alt="Logo" class="w-24 h-24 mb-4" src="<?= $base_url ?>/assets/icons/logo.png"/>
+                <p class="text-base mb-4 italic">
+                    “Con amor, juntos por la inclusión”
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-xl">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">Menú</h3>
+                <ul class="space-y-3">
+                    <li><a href="../index.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Inicio</a></li>
+                    <li><a href="../src/Views/Noticias.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Noticias</a></li>
+                    <li><a href="../src/Views/Eventos.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Eventos</a></li>
+                    <li><a href="../src/Views/Contactos.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Contactos</a></li>
+                </ul>
+            </div>
+            
+          
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">Contacto</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                        <span class="text-lg">Costa Chica, Guerrero</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
+                        <span class="text-lg">+52 744 123 4567</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+                        <span class="text-lg">contacto@reddepadres.org</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-white text-xl font-bold mb-4">Escribenos</h3>
+                <p class="text-base mb-4">
+                   Recibe nuestras notificaciones
+                </p>
+                <form class="flex">
+                    <input type="email" placeholder="Tu correo" class="px-4 py-3 w-full rounded-l-lg focus:outline-none text-gray-800 text-base">
+                    <button type="submit" class="bg-[#1A5CE0] text-white px-6 py-3 rounded-r-lg hover:bg-blue-600 transition-colors duration-300">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+            <p class="text-base">
+                &copy; <?php echo date("Y"); ?> Red de Padres. Todos los derechos reservados.
+            </p>
         </div>
     </div>
 </footer>
+
+
+<script>
+    document.querySelector('form')?.addEventListener('submit', (e) => {
+        const email = e.target.querySelector('input[type="email"]').value;
+        if (!email.includes('@')) {
+            e.preventDefault();
+            alert('Por favor ingresa un correo válido');
+        }
+    });
+</script>

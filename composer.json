@@ -1,0 +1,15 @@
+{
+    "name": "oscar/redpadre",
+    "autoload": {
+        "psr-4": {
+            "Oscar\\Redpadre\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "oscar",
+            "email": "oscarch110622@gmail.com"
+        }
+    ],
+    "require": {}
+}
