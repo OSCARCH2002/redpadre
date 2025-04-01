@@ -51,7 +51,7 @@
                             name="email" 
                             required
                             class="input-field w-full pl-10 pr-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="tu@correo.com">
+                            placeholder="ingresa tu correo">
                     </div>
                 </div>
 

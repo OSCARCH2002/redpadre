@@ -158,18 +158,17 @@
 
 <script>
     const videoData = [
-        { id: '9NXIo6PIb51', title: '¿Qué es la inclusión?', description: 'Conceptos básicos sobre inclusión social', category: 'therapy' },
-        { id: '5F-WHVuVbc1', title: 'Terapias innovadoras', description: 'Nuevos enfoques terapéuticos', category: 'therapy' },
-        { id: '3fJ5dG3uLQ1', title: 'Mi experiencia', description: 'Testimonio real de una familia', category: 'testimony' },
-        { id: '7KZ5Q1oBqY3', title: 'Escuelas inclusivas', description: 'Cómo adaptar el sistema educativo', category: 'inclusion' },
-        { id: 'G8S81CEBdN4', title: 'Ejercicios en casa', description: 'Guía práctica para terapia ocupacional', category: 'therapy' },
-        { id: 'vp8H3Q1eQ75', title: 'Nuestra historia', description: 'Cómo enfrentamos los desafíos juntos', category: 'testimony' },
-        { id: 'dQw4w9WgXc6', title: 'Taller de habilidades', description: 'Desarrollo de capacidades básicas', category: 'inclusion' },
-        { id: 'yPYZpwSpK65', title: 'Terapia del lenguaje', description: 'Ejercicios para mejorar comunicación', category: 'therapy' },
-        { id: 'oHg5SJYRHA4', title: 'Superando límites', description: 'Historia de crecimiento personal', category: 'testimony' },
-        { id: 'jNQXAC9IVR6', title: 'Inclusión laboral', description: 'Oportunidades en el ámbito profesional', category: 'inclusion' },
-        { id: '8xg3vE8Ie_4', title: 'Musicoterapia', description: 'Beneficios de la música en terapias', category: 'therapy' },
-        { id: 'dQw4w9WgXc2', title: 'Un día en nuestra vida', description: 'Rutina familiar adaptada', category: 'testimony' }
+        { id: 'KZHJZiL9CuU', title: 'Fisioterapia para niños discapacitados',category: 'therapy' },
+        { id: 'y3_JmpG9e2Q', title: 'Ejercicio: ejercicios para estabilidad del tronco en sentado',category: 'therapy' },
+        { id: 'errX2yke810', title: 'Día de la discapacidad: testimonios de superación',category: 'testimony' },
+        { id: 'KNP6I-TrwvI', title: 'EXPLICAR A LOS NIÑOS LA DISCAPACIDAD, EDUCAR EN LA INCLUSIÓN', category: 'inclusion' },
+        { id: 'GiXkKNRCaeA', title: 'Terapia en casa: Terapias conductuales para niños con autismo.',category: 'therapy' },
+        { id: 'H2gKnsa7Xvg', title: 'Mi discapacidad, mi mayor virtud | My disability,my greatest virtue | Lucas Alaniz | TEDxBahiaBlanca',category: 'testimony' },
+        { id: 'qTm5QBEie8s', title: 'Una persona es inclusiva cuando',category: 'inclusion' },
+        { id: 'nVItENfQoUg', title: 'La fisioterapia activa, técnica para tratar casos de parálisis cerebral en niños', category: 'therapy' },
+        { id: 'AvF1QXIvwuA', title: 'TESTIMONIO ANDERSON RUIZ', category: 'testimony' },
+        { id: 'FUqmaEAtuuw', title: 'Educación inclusiva | Modelo social de discapacidad',category: 'inclusion' },
+        { id: 'egvh32oKRuA', title: 'Testimonio: Mi discapacidad psicosocial no me limita',category: 'testimony' }
     ];
 
     const videosPerPage = 6;
@@ -198,7 +197,6 @@
                                     allowfullscreen></iframe>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-2">${video.title}</h3>
-                        <p class="text-gray-400 mb-3">${video.description}</p>
                         <span class="category-badge ${video.category}-badge">
                             ${video.category === 'inclusion' ? 'Inclusión' : 
                               video.category === 'therapy' ? 'Terapias' : 'Testimonios'}

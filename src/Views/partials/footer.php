@@ -23,10 +23,10 @@
             <div>
                 <h3 class="text-white text-xl font-bold mb-4">Menú</h3>
                 <ul class="space-y-3">
-                    <li><a href="../index.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Inicio</a></li>
-                    <li><a href="../src/Views/Noticias.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Noticias</a></li>
-                    <li><a href="../src/Views/Eventos.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Eventos</a></li>
-                    <li><a href="../src/Views/Contactos.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Contactos</a></li>
+                    <li><a href="<?= $base_url ?>/public/index.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Inicio</a></li>
+                    <li><a href="<?= $base_url ?>/src/Views/Noticias.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Noticias</a></li>
+                    <li><a href="<?= $base_url ?>/src/Views/Eventos.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Eventos</a></li>
+                    <li><a href="<?= $base_url ?>/src/Views/Contactos.php" class="hover:text-blue-400 transition-colors duration-300 text-lg">Contactos</a></li>
                 </ul>
             </div>
             
@@ -36,15 +36,15 @@
                 <ul class="space-y-3">
                     <li class="flex items-start">
                         <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-                        <span class="text-lg">Costa Chica, Guerrero</span>
+                        <span class="text-lg">San Marcos, Guerrero</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
-                        <span class="text-lg">+52 744 123 4567</span>
+                        <span class="text-lg">+52 745 104 3814</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-                        <span class="text-lg">contacto@reddepadres.org</span>
+                        <span class="text-lg">redpadres@gmail.com</span>
                     </li>
                 </ul>
             </div>

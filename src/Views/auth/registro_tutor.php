@@ -151,7 +151,7 @@
                             <label for="email" class="block text-gray-700 font-medium mb-2">Correo Electrónico *</label>
                             <input type="email" id="email" name="email" 
                                    class="form-input w-full px-3 py-3 focus:outline-none" 
-                                   placeholder="tucorreo@ejemplo.com"
+                                   placeholder="correo@gmail.com"
                                    required>
                         </div>
                         
@@ -177,7 +177,7 @@
                                 <option value="" disabled selected>Selecciona una opción</option>
                                 <option value="madre">Madre</option>
                                 <option value="padre">Padre</option>
-                                <option value="tutor">Tutor legal</option>
+                                <option value="tutor">Tutor</option>
                                 <option value="abuelo">Abuelo/a</option>
                                 <option value="tio">Tío/a</option>
                                 <option value="hermano">Hermano/a</option>

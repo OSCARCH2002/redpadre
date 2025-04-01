@@ -182,8 +182,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php
             $noticias = [
-                ['img' => 'noticia1.jpg', 'titulo' => 'Hablemos de discapacidad', 'desc' => '“Cualquier restricción o impedimento de la capacidad de realizar una actividad en la forma o dentro del margen que se considera normal.”', 'link' => 'https://www.gob.mx/salud/articulos/que-es-la-discapacidad'],
-                ['img' => 'noticia2.jpg', 'titulo' => 'Tipos de Discapacidad', 'desc' => 'Sensorial Visual, Auditiva, Motriz, Intelectual, Mental o Psicosocial.', 'link' => 'https://www.un.org/esa/socdev/enable/spanish/disabled.html'],
+                ['img' => '../../assets/images/galeria3.jpg', 'titulo' => 'Hablemos de discapacidad', 'desc' => '“Cualquier restricción o impedimento de la capacidad de realizar una actividad en la forma o dentro del margen que se considera normal.”', 'link' => 'https://www.gob.mx/salud/articulos/que-es-la-discapacidad'],
+                ['img' => '../../assets/images/galeria2.jpg', 'titulo' => 'Tipos de Discapacidad', 'desc' => 'Sensorial Visual, Auditiva, Motriz, Intelectual, Mental o Psicosocial.', 'link' => 'https://www.un.org/esa/socdev/enable/spanish/disabled.html'],
                 ['img' => 'noticia3.jpg', 'titulo' => '¿Sabes qué ocasiona la discapacidad?', 'desc' => 'La INEGI clasifica las causas en cuatro grupos principales: nacimiento, enfermedad, accidente y edad avanzada.', 'link' => 'https://www.inegi.org.mx/temas/discapacidad/'],
                 ['img' => 'noticia4.jpg', 'titulo' => 'Apoyos para personas con discapacidad', 'desc' => 'Legislativo, lenguaje incluyente, rehabilitación y ayudas técnicas.', 'link' => 'https://www.conadis.gob.mx'],
                 ['img' => 'noticia5.jpg', 'titulo' => 'Inclusión laboral en Venustiano Carranza', 'desc' => 'Más de 40 empresas del sector público y privado participaron en la feria.', 'link' => 'https://www.incluyeme.com'],
@@ -193,7 +193,7 @@
             foreach ($noticias as $index => $noticia): ?>
                 <div class="news-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 100 ?>">
                     <div class="relative h-60 overflow-hidden">
-                        <img src="/assets/images/<?= $noticia['img'] ?>" alt="<?= $noticia['titulo'] ?>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="../../assets/images/<?= $noticia['img'] ?>" alt="<?= $noticia['titulo'] ?>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                     </div>
                     <div class="p-6">

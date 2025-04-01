@@ -3,7 +3,6 @@ $host = $_SERVER['HTTP_HOST'];
 $base_url = "http://$host/redpadre";  
 include '../src/Views/partials/header.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -203,6 +202,20 @@ include '../src/Views/partials/header.php';
             color: #3b82f6;
             transform: translateY(5px) translateX(-50%);
         }
+.hero-gradient-transition {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(
+        to bottom, 
+        transparent, 
+        var(--bg-color)
+    );
+    z-index: 5; 
+    pointer-events: none;
+}
     </style>
 </head>
 <body class="antialiased">
@@ -212,6 +225,8 @@ include '../src/Views/partials/header.php';
 
 <!-- Hero Section -->
 <section class="relative h-screen overflow-hidden pt-24">
+
+    
     <div class="absolute inset-0 bg-black z-0">
         <img alt="Group of people" class="w-full h-full object-cover opacity-70" src="<?= $base_url ?>/assets/images/main.jpeg"/>
     </div>
@@ -245,7 +260,7 @@ include '../src/Views/partials/header.php';
         </div>
     </div>
     
-    <!-- Flecha de scroll-->
+ 
     <div class="scroll-down bounce-animation" data-aos="fade-up" data-aos-delay="500">
         <a href="#about" class="scroll-down-arrow" id="scroll-down">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -253,6 +268,8 @@ include '../src/Views/partials/header.php';
             </svg>
         </a>
     </div>
+    <div class="hero-gradient-transition"></div>
+
 </section>
 
 <!-- Sobre Nosotros -->
@@ -557,83 +574,7 @@ include '../src/Views/partials/header.php';
 </section>
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    // Inicialización de las animaciones
-    AOS.init({
-        duration: 800,
-        once: true,
-        easing: 'ease-in-out'
-    });
-    
-   
-    function toggleFAQ(button) {
-        const faqItem = button.closest('.faq-item');
-        const answer = faqItem.querySelector('.faq-answer');
-        const icon = button.querySelector('svg');
-        
-        
-        document.querySelectorAll('.faq-item').forEach(item => {
-            if (item !== faqItem) {
-                const otherAnswer = item.querySelector('.faq-answer');
-                const otherIcon = item.querySelector('svg');
-                otherAnswer.classList.add('hidden');
-                otherIcon.classList.remove('rotate-45');
-            }
-        });
-       
-        answer.classList.toggle('hidden');
-        icon.classList.toggle('rotate-45');
-    }
-    
- 
-    document.addEventListener('DOMContentLoaded', function() {
-        const particlesContainer = document.getElementById('particles');
-        if (particlesContainer) {
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                const size = Math.random() * 2 + 1;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 5;
-                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-     
-        const scrollDown = document.getElementById('scroll-down');
-        if (scrollDown) {
-            scrollDown.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        }
-    });
-</script>
-
+<script src="../assets/js/ScriptMain.js"></script>
 <?php include '../src/Views/partials/footer.php'; ?>
 
 </body>
