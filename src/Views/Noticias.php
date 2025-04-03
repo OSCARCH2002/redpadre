@@ -182,12 +182,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php
             $noticias = [
-                ['img' => '../../assets/images/galeria3.jpg', 'titulo' => 'Hablemos de discapacidad', 'desc' => '“Cualquier restricción o impedimento de la capacidad de realizar una actividad en la forma o dentro del margen que se considera normal.”', 'link' => 'https://www.gob.mx/salud/articulos/que-es-la-discapacidad'],
-                ['img' => '../../assets/images/galeria2.jpg', 'titulo' => 'Tipos de Discapacidad', 'desc' => 'Sensorial Visual, Auditiva, Motriz, Intelectual, Mental o Psicosocial.', 'link' => 'https://www.un.org/esa/socdev/enable/spanish/disabled.html'],
-                ['img' => 'noticia3.jpg', 'titulo' => '¿Sabes qué ocasiona la discapacidad?', 'desc' => 'La INEGI clasifica las causas en cuatro grupos principales: nacimiento, enfermedad, accidente y edad avanzada.', 'link' => 'https://www.inegi.org.mx/temas/discapacidad/'],
-                ['img' => 'noticia4.jpg', 'titulo' => 'Apoyos para personas con discapacidad', 'desc' => 'Legislativo, lenguaje incluyente, rehabilitación y ayudas técnicas.', 'link' => 'https://www.conadis.gob.mx'],
-                ['img' => 'noticia5.jpg', 'titulo' => 'Inclusión laboral en Venustiano Carranza', 'desc' => 'Más de 40 empresas del sector público y privado participaron en la feria.', 'link' => 'https://www.incluyeme.com'],
-                ['img' => 'noticia6.jpg', 'titulo' => 'Reforma de estacionamientos accesibles', 'desc' => 'Cámara de Diputados aprobó la reforma de la Ley General de Movilidad y Seguridad Vial.', 'link' => 'https://www.diputados.gob.mx']
+                ['img' => 'IMG_noticias1.webp', 'titulo' => 'Hablemos de discapacidad', 'desc' => '“Cualquier restricción o impedimento de la capacidad de realizar una actividad en la forma o dentro del margen que se considera normal.”', 'link' => 'https://goo.su/SOdDzRV'],
+                ['img' => 'IMG_noticias5.jpeg', 'titulo' => 'Tipos de Discapacidad', 'desc' => 'Sensorial Visual, Auditiva, Motriz, Intelectual, Mental o Psicosocial.', 'link' => 'https://goo.su/SOdDzRV'],
+                ['img' => 'IMG_noticias4.jpeg', 'titulo' => '¿Sabes qué ocasiona la discapacidad?', 'desc' => 'La INEGI clasifica las causas en cuatro grupos principales: nacimiento, enfermedad, accidente y edad avanzada.', 'link' => 'https://goo.su/SOdDzRV'],
+                ['img' => 'IMG_noticias6.webp', 'titulo' => 'Apoyos para personas con discapacidad', 'desc' => 'Legislativo, lenguaje incluyente, rehabilitación y ayudas técnicas.', 'link' => 'https://goo.su/SOdDzRV'],
+                ['img' => 'IMG_noticias3.jpeg', 'titulo' => 'Inclusión laboral en Venustiano Carranza', 'desc' => 'Más de 40 empresas del sector público y privado participaron en la feria.', 'link' => 'https://goo.su/kRetYA'],
+                ['img' => 'IMG_noticias2.jpeg', 'titulo' => 'Reforma de estacionamientos accesibles', 'desc' => 'Cámara de Diputados aprobó la reforma de la Ley General de Movilidad y Seguridad Vial.', 'link' => 'https://goo.su/PwT6MX']
             ];
 
             foreach ($noticias as $index => $noticia): ?>
